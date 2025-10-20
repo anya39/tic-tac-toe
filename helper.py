@@ -33,18 +33,22 @@ def on_click(row, col, buttons, current_player, set_player_callback, reset_callb
         return
     buttons[row][col]["text"] = current_player #set X or Y
 
+    #returns screen alert if there is a winner
     if check_winner(buttons):
         messagebox.showinfo("Game Over",f"Game Over!\nPlayer {current_player} Wins!")
         reset_callback(current_player)
         return
     
+    #returns screen alert if there is a draw
     if check_draw(buttons):
         messagebox.showinfo("Game Over", "Game Over!\nIt's a Draw!")
         reset_callback()
         return
     
+    #changes players turn if game is not over
     if current_player == "X":
         next_player = "O"
     else:
         next_player = "X"
+    #updates regardless of who next player is
     set_player_callback(next_player)

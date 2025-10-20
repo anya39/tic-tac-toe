@@ -1,4 +1,4 @@
-#setup
+#setup----------------------------------------------------------------------------------
 import tkinter as tk
 from tkinter import messagebox
 from helper import on_click
@@ -15,12 +15,13 @@ x_score = 0
 o_score = 0
 buttons = [[None for i in range (3)] for i in range (3)]
 
+#functions-------------------------------------------------------------------------------
 #define callback to update the current player
 def set_player_callback(new_player):
     global current_player
     current_player = new_player
 
-#define callback to reset the board (placeholder)
+#define callback to reset the board and update score label based on winner
 def reset_callback(current_player):
     global x_score, o_score
     if current_player=="X":
@@ -35,6 +36,8 @@ def reset_callback(current_player):
 
     #updates score label
     score_label.config(text=f"Player X Score: {x_score} | Player O Score: {o_score}")
+
+#main elements (buttons and label)---------------------------------------------------------
 
 #creates buttons and places them in grid
 for i in range(3):
@@ -53,5 +56,5 @@ for i in range(3):
 score_label = tk.Label(root, text=f"Player X Score: {x_score} | Player O Score: {o_score}")
 score_label.grid(row=3, column= 0, columnspan=3, pady=10)
 
-#goes at end of program to keep window open
+#goes at end of program to keep window open--------------------------------------------------------
 root.mainloop()
