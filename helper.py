@@ -26,13 +26,6 @@ def check_draw(buttons):
                 return False
     return True
 
-#reset board function
-def reset_board(buttons,set_player_callback):
-    for row in buttons:
-        for button in row:
-            button["text"] = ""
-    set_player_callback("X")
-
 #when a button is clicked, checks if box is empty, checks for win, checks for draw, sets up next move
 def on_click(row, col, buttons, current_player, set_player_callback, reset_callback):
     # checks if box is already clicked
@@ -42,11 +35,11 @@ def on_click(row, col, buttons, current_player, set_player_callback, reset_callb
 
     if check_winner(buttons):
         messagebox.showinfo("Game Over",f"Game Over!\nPlayer {current_player} Wins!")
-        reset_callback()
+        reset_callback(current_player)
         return
     
     if check_draw(buttons):
-        messagebox.showinfo("Game Over! It's a draw!")
+        messagebox.showinfo("Game Over", "Game Over!\nIt's a Draw!")
         reset_callback()
         return
     
