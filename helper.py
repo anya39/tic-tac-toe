@@ -26,7 +26,7 @@ def check_draw(buttons):
                 return False
     return True
 
-#function to import to main
+#function to import to main--------------------------------------------------------------------------------
 #when a button is clicked, checks if box is empty, checks for win, checks for draw, sets up next move
 def on_click(row, col, buttons, current_player, set_player_callback, reset_callback):
     # checks if box is already clicked

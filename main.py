@@ -8,6 +8,7 @@ root = tk.Tk()
 root.title("Tic Tac Toe")
 root.geometry("405x410")
 root.resizable(0,0) #disables resizing
+root.config(bg = "#FFCBE3")
 
 #setup for board and playing
 current_player = "X"
